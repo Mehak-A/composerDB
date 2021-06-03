@@ -1,0 +1,16 @@
+CC = g++
+CFLAGS = -g
+
+all: DatabaseTest
+
+composer.o:      composer.h composer.cc
+        $(CC) $(CFLAGS) -c domposer.cc
+
+database.o:      database.h database.cc
+        $(CC) $(CFLAGS) -c database.cc
+
+Database:    composer.o database.o
+        $(CC) $(CFLAGS) composer.o database.o databaseTest.cc -o Database
+
+clean:
+        rm -f core *.o *~
